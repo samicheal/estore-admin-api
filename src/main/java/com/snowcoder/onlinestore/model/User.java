@@ -45,5 +45,5 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
 
-    //implement custom constraing validation for all strings
+    //implement custom constraint validator for all strings
 }

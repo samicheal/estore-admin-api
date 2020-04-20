@@ -33,6 +33,7 @@ public class UserController {
 
     @PostMapping("/add")
     public User createUser(@Valid @RequestBody User user){
+        //logger.info("here ...");
         return userService.createUser(user);
     }
 

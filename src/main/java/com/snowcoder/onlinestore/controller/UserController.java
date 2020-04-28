@@ -33,7 +33,6 @@ public class UserController {
 
     @PostMapping("/add")
     public User createUser(@Valid @RequestBody User user){
-        //logger.info("here ...");
         return userService.createUser(user);
     }
 
@@ -42,5 +41,13 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getTotalUsers());
     }
 
+    @DeleteMapping(value = "/delete/{id}")
+    public void delete(@PathVariable Long id){
+        userService.deleteUser(id);
+    }
 
+    @PutMapping(value = "/add/{id}")
+    public User updateUser(@Valid @RequestBody User user){
+        return userService.createUser(user);
+    }
 }

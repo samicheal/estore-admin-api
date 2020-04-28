@@ -13,11 +13,6 @@ public class UserService {
 
     private UserRepository userRepository;
 
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
@@ -28,5 +23,14 @@ public class UserService {
 
     public int getTotalUsers(){
         return userRepository.findAll().size();
+    }
+
+    public void deleteUser(long id){
+        userRepository.deleteById(id);
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

@@ -20,8 +20,8 @@ import java.util.Date;
 public class ApiExceptionHandlerController extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> globalExceptionHandler(ResourceNotFoundException ex, WebRequest request){
+    public ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request){
         ApiError errorDetails = new ApiError(HttpStatus.NOT_FOUND, request.getDescription(false), ex);
-        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 }

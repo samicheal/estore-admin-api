@@ -18,18 +18,6 @@ public class ApiError {
         timestamp = LocalDateTime.now();
     }
 
-    public ApiError(HttpStatus httpStatus) {
-        this();
-        this.httpStatus = httpStatus;
-    }
-
-    public ApiError(HttpStatus httpStatus, Throwable ex) {
-        this();
-        this.httpStatus = httpStatus;
-        this.message = ApiErrorEnums.UNEXPECTED_ERROR.getApiErrorCode();
-        this.debugMessage = ex.getLocalizedMessage();
-    }
-
     public ApiError(HttpStatus httpStatus, String message, Throwable ex) {
         this();
         this.httpStatus = httpStatus;

@@ -40,6 +40,7 @@ public class User {
     private String type;
 
     @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createDateTime;
 
     @UpdateTimestamp

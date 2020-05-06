@@ -7,30 +7,24 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class UserService {
+public interface UserService {
 
-    private UserRepository userRepository;
+    Iterable<User> getAllUsers();
 
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
-    }
+    Iterable<User> findUserByFirstName(String name);
 
-    public User createUser(User user){
-        return userRepository.save(user);
-    }
+    User createUser(User user);
 
-    public int getTotalUsers(){
-        return userRepository.findAll().size();
-    }
+    int getTotalUsers();
 
-    public void deleteUser(long id){
-        userRepository.deleteById(id);
-    }
+    int getTotalUsersFromPreviousMonth();
 
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    int getTotalUsersFromCurrentMonth();
+
+    void deleteUser(User user);
+
+    Optional<User> findUser(Long id);
+
 }
